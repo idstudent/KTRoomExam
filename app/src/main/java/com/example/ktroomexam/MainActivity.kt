@@ -1,5 +1,6 @@
 package com.example.ktroomexam
 
+import android.arch.lifecycle.Observer
 import android.arch.persistence.room.Room
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -19,11 +20,17 @@ class MainActivity : AppCompatActivity() {
         ).allowMainThreadQueries() // 메인쓰레드에서도 하도록 함 실무에서는 백그라운드 쓰레드에서 하니 잘안쓴다고함
             .build()
 
+
+        db.todoDao().getAll().observe(this, Observer {
+            result_text.text = it.toString()
+        })
+
         add_button.setOnClickListener {
             db.todoDao().insert(Todo(todo_edit.text.toString()))
-            todo = Todo(todo_edit.text.toString()) // [title=exam] 이런형태로 나와서 이걸 없애기 위해 씀
-            result_text.text = todo.title.toString()
-            Log.e("tag", db.todoDao().getAll().toString())
+//            todo = Todo(todo_edit.text.toString()) // [title=exam] 이런형태로 나와서 이걸 없애기 위해 씀
+//            result_text.text = todo.title.toString()
+            db.todoDao().insert(Todo(todo_edit.text.toString()))
+            result_text.text = db.todoDao().getAll().toString()
         }
 
     }
