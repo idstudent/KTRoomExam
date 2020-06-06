@@ -1,7 +1,7 @@
 package com.example.ktroomexam
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 //룸클래스로 사용하기위한 어노테이션이라는데 설명을 저래해줌.
 @Entity

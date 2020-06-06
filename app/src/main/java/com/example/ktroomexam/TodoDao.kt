@@ -1,7 +1,7 @@
 package com.example.ktroomexam
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.*
+import androidx.lifecycle.LiveData
+import androidx.room.*
 
 @Dao // 설명안해줌
 interface TodoDao {
