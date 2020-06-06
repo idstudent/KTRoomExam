@@ -29,8 +29,6 @@ class MainActivity : AppCompatActivity() {
             db.todoDao().insert(Todo(todo_edit.text.toString()))
 //            todo = Todo(todo_edit.text.toString()) // [title=exam] 이런형태로 나와서 이걸 없애기 위해 씀
 //            result_text.text = todo.title.toString()
-            db.todoDao().insert(Todo(todo_edit.text.toString()))
-            result_text.text = db.todoDao().getAll().toString()
         }
 
     }
